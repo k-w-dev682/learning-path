@@ -2,8 +2,9 @@
 #include <vector>
 
 int main() {
-    std::string name;
-    std::cout<<"What's your full name?: ";
-    std::getline(std::cin, name);
-    std::cout<<name;
+    
+    int grade = 55;
+    grade >= 60 ? std::cout << "You pass!" : std::cout << "You fail";
+    
+    return 0;
 }
