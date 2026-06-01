@@ -2,32 +2,37 @@
 #include <vector>
 
 int main() {
-    double temp;
-    char unit;
+    std::string name;
 
-    std::cout << "***** Tempterature conversion *****\n";
-    std::cout << "F = Fahrenheit\n";
-    std::cout << "C = Celsius\n";
-    std::cout << "What unit would you  like to convert to: ";
-    std::cin >> unit;
-    
-    if(unit == 'F' || unit == 'f') {
-        std::cout << "Enter the temperature in Celsius: ";
-        std::cin >> temp;
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, name);
 
-        temp = (1.8 * temp) +32.0;
-        std::cout << "Temperature is: " << temp << "F\n";
-    }
-    else if (unit == 'C' || unit == 'c') {
-        std::cout << "Enter the temperature in Celsius: ";
-        std::cin >> temp;
-
-        temp = (temp - 32) / 1.8;
-        std::cout << "Temperature is: " << temp << "C\n";
-
+    /* if(name.length() > 12) {
+        std::cout << "Your name can't be over 12 characters";
     } else {
-        std::cout << "Please enter only C or F\n";
-    }
+        std::cout << "Welcome " << name;
+    } */
 
+    /* if(name.empty()) {
+        std::cout << "You didn't enter your name";
+    } else {
+        std::cout << "Hello " << name;
+    } */
+
+    /* name.clear();
+    std::cout << "Hello" << name; */
+
+    /* name.append("@gmail.com");
+    std::cout << "Your username is now" << name; */
+
+    /*std::cout << name.at(1);*/
+
+    /* name.insert(0, "@");
+    std::cout << name; */
+
+    /* std::cout << name.find(' '); */
+
+    /* name.erase(0, 3);
+    std::cout << name; */
     return 0;
 }
