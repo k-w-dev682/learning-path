@@ -1,97 +1,22 @@
 #include <iostream>
-#include <ctime>
-
-char getUserChoice();
-char getComputerChoice();
-void showChoice(char choice);
-void chooseWinner(char player, char computer);
 
 int main() {
-    char player;
-    char computer;
+    //std::string cars[] = {"Corvertte", "Mustang", "Camry"};
 
-    player = getUserChoice();
-    std::cout << "Your choice: ";
-    showChoice(player);
+    /* std::string cars[3];
 
-    computer = getComputerChoice();
-    std::cout <<"Computer's choice: ";
-    showChoice(computer);
+    cars[0] = "Camaro";
+    cars[1] = "Mustang";
+    cars[2] = "Camry";
 
-    chooseWinner(player, computer);
+    std::cout << cars[0] <<'\n';
+    std::cout << cars[1] <<'\n';
+    std::cout << cars[2] <<'\n'; */
 
-    return 0;
-}
+    double prices[] = {5.00, 7.50, 9.99, 15.00};
 
-char getUserChoice() {
-    char player;
-    std::cout << "Roch-Paper_Scissors Game!\n";
-    
-
-    do { 
-        std::cout << "Choose one of the following\n";
-        std::cout << "*************************\n";
-        std::cout << "'r' for rock\n";
-        std::cout << "'p' for paper\n";
-        std::cout << "'s' for scissors\n";
-        std::cin >> player;
-    } while(player != 'r' && player != 'p' && player != 's');
-
-    return player;
-}
-
-char getComputerChoice() {
-    srand(time(0));
-    int num = rand() % 3 + 1;
-
-    switch(num) {
-        case 1: return 'r';
-        case 2: return 'p';
-        case 3: return 's';
-    }
-
-    return 0;
-}
-
-void showChoice(char choice) {
-    switch(choice) {
-        case 'r':   std::cout << "Rock\n";
-                    break;
-        case 'p':   std::cout << "Paper\n";
-                    break;  
-        case 's':   std::cout << "Scissors\n";
-                    break;       
-    }
-}
-
-void chooseWinner(char player, char computer) {
-    switch(player) {
-        case 'r':   if(computer == 'r') {
-                        std::cout << "It's a tie!\n";
-                    }
-                    else if(computer =='p') {
-                        std::cout << "You lose!\n";
-                    } else {
-                        std::cout << "You win!\n";
-                    }
-                    break;
-        case 'p':   if(computer == 'p') {
-                        std::cout << "It's a tie!\n";
-                    }
-                    else if(computer =='s') {
-                        std::cout << "You lose!\n";
-                    } else {
-                        std::cout << "You win!\n";
-                    }
-                    break;
-        case 's':   if(computer == 's') {
-                        std::cout << "It's a tie!\n";
-                    }
-                    else if(computer =='r') {
-                        std::cout << "You lose!\n";
-                    } else {
-                        std::cout << "You win!\n";
-                    }
-                    break;
-    }
+    std::cout << prices[0] << '\n';
+    std::cout << prices[1] << '\n';
+    std::cout << prices[2] << '\n';
+    std::cout << prices[3] << '\n';
 }
