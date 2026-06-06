@@ -1,12 +1,22 @@
 #include <iostream>
 
-int main() {
-    //std::string students[] = {"Spongebob", "Patrick", "Squidward", "Sandy"};
-    int grades[] = {65, 72, 81, 93};
+double getTotal(double prices[], int size);
 
-    for(int grade : grades) {
-        std::cout << grade << '\n';
-    }
+int main() {
+    double prices[] = {49.99, 15.05, 75, 9.99};
+    int size = sizeof(prices)/sizeof(prices[0]);
+    double total = getTotal(prices, size);
+
+    std::cout << "$" << total;
 
     return 0;
+}
+double getTotal(double prices[], int size) {
+    double total = 0;
+
+    for(int i = 0; i < size; i++) {
+        total += prices[i];
+    }
+
+    return total;
 }
