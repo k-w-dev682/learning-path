@@ -2,10 +2,10 @@
 
 int main() {
     //std::string students[] = {"Spongebob", "Patrick", "Squidward", "Sandy"};
-    char grades[] = {'A', 'B', 'C', 'D', 'F'};
+    int grades[] = {65, 72, 81, 93};
 
-    for(int i = 0; i < sizeof(grades)/sizeof(char); i++) {
-        std::cout << grades[i] << '\n';
+    for(int grade : grades) {
+        std::cout << grade << '\n';
     }
 
     return 0;
