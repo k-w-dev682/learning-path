@@ -1,0 +1,12 @@
+# Ignoruj pliki wykonywalne (programy)
+*.exe
+
+# Ignoruj pliki obiektowe i tymczasowe kompilatora
+*.obj
+*.o
+*.pdb
+*.ilk
+
+# Ignoruj foldery konfiguracyjne edytora w tym miejscu
+.vscode/
+build/
