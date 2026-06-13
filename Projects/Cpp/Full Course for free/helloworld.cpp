@@ -1,44 +1,44 @@
 #include <iostream>
 
-struct Car {
-    std::string model;
-    int year;
-    std::string color;
-};
-
-void printCar(Car &car);
-void paintCar(Car &car, std::string color);
+enum Day {sunday = 0, monday = 1, tuesday = 2, wednesday = 3, thursday = 4, friday = 5, saturday = 6};
 
 int main() {
-    Car car1;
-    Car car2;
+    Day today = friday;
 
-    car1.model = "Mustang";
-    car1.year = 2023;
-    car1.color = "red";
+    /*switch(today) {
+        case sunday:      std::cout << "It is Sunday!\n";
+                            break;
+        case monday:      std::cout << "It is Monday!\n";
+                            break;
+        case tuesday:     std::cout << "It is Tuesday!\n";
+                            break;
+        case wednesday:   std::cout << "It is Wednesday!\n";
+                            break;
+        case thursday:    std::cout << "It is Thursday!\n";
+                            break;
+        case friday:      std::cout << "It is Friday!\n";
+                            break;
+        case saturday:    std::cout << "It is Saturday!\n";
+                            break;
+    } */
 
-    car2.model = "Corvette";
-    car2.year = 2023;
-    car2.color = "blue";
-    
-    std::cout << &car1 << '\n';
+    switch(today) {
+        case 0:      std::cout << "It is Sunday!\n";
+                            break;
+        case 1:      std::cout << "It is Monday!\n";
+                            break;
+        case 2:     std::cout << "It is Tuesday!\n";
+                            break;
+        case 3:   std::cout << "It is Wednesday!\n";
+                            break;
+        case 4:    std::cout << "It is Thursday!\n";
+                            break;
+        case 5:      std::cout << "It is Friday!\n";
+                            break;
+        case 6:    std::cout << "It is Saturday!\n";
+                            break;
+    }
 
-    paintCar(car1, "silver");
-    paintCar(car2, "gold");
-
-    printCar(car1);
-    printCar(car2);
 
     return 0;
-}
-
-void printCar(Car &car) {
-    std::cout << &car << '\n';
-    std::cout << car.model << '\n';
-    std::cout << car.year << '\n';
-    std::cout << car.color << '\n';
-}
-
-void paintCar(Car &car, std::string color) {
-    car.color = color;
 }
