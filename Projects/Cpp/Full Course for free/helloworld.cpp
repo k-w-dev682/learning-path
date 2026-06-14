@@ -1,30 +1,33 @@
 #include <iostream>
 
-class Pizza {
+class Stove {
+    private:
+        int temperature = 0;
     public:
-        std::string topping1;
-        std::string topping2;
-    
-    Pizza(){
-        
+    Stove(int temperature) {
+        setTemperature(temperature);
     }
-    Pizza(std::string topping1) {
-        this -> topping1 = topping1;
+
+    int getTemperature() {
+        return temperature;
     }
-    Pizza(std::string topping1, std::string topping2) {
-        this -> topping1 = topping1;
-        this -> topping2 = topping2;
+    void setTemperature(int temperature) {
+        if(temperature < 0) {
+            this -> temperature = 0;
+        }
+        else if(temperature >= 10) {
+            this -> temperature = 10;
+        } else {
+            this -> temperature = temperature;
+        }
     }
 };
 
 int main() {
-    Pizza pizza1("pepperoni");
-    Pizza pizza2("mushrooms", "peppers");
-    Pizza pizza3;
+    Stove stove(0);
+    
+    //stove.setTemperature(5);
 
-    //std::cout << pizza1.topping1 << '\n';
-    std::cout << pizza2.topping1 << '\n';
-    std::cout << pizza2.topping2 << '\n';
-
+    std::cout << "The temperature setting is: " << stove.getTemperature();
     return 0;
 }
