@@ -1,54 +1,30 @@
 #include <iostream>
 
-class Student {
+class Pizza {
     public:
-        std::string name;
-        int age;
-        double gpa;
-    Student(std::string name, int age, double gpa) {
-        this -> name = name;
-        this -> age = age;
-        this -> gpa = gpa;
+        std::string topping1;
+        std::string topping2;
+    
+    Pizza(){
+        
+    }
+    Pizza(std::string topping1) {
+        this -> topping1 = topping1;
+    }
+    Pizza(std::string topping1, std::string topping2) {
+        this -> topping1 = topping1;
+        this -> topping2 = topping2;
     }
 };
-
-class Car {
-    public:
-        std::string make;
-        std::string model;
-        int year;
-        std::string color;
-
-    Car(std::string make, std::string model, int year, std::string color) {
-        this -> make = make;
-        this -> model = model;
-        this -> year = year;
-        this -> color = color;
-    }
-};
-
 
 int main() {
-    Student student1("Spongebob", 25, 3.2);
-    Student student2("Patrick", 40, 1.5);
-    Student student3("Sandy", 21, 4.0);
+    Pizza pizza1("pepperoni");
+    Pizza pizza2("mushrooms", "peppers");
+    Pizza pizza3;
 
-    Car car1("Chevy", "Corvette", 2022, "blue");
-    Car car2("Ford", "Mustang", 2023, "red");
-
-    //std::cout << student3.name << '\n';
-    //std::cout << student3.age << '\n';
-    //std::cout << student3.gpa << '\n';
-
-    std::cout << car1.make << '\n';
-    std::cout << car1.model << '\n';
-    std::cout << car1.year << '\n';
-    std::cout << car1.color << '\n' << '\n';
-
-    std::cout << car2.make << '\n';
-    std::cout << car2.model << '\n';
-    std::cout << car2.year << '\n';
-    std::cout << car2.color << '\n';
+    //std::cout << pizza1.topping1 << '\n';
+    std::cout << pizza2.topping1 << '\n';
+    std::cout << pizza2.topping2 << '\n';
 
     return 0;
 }
