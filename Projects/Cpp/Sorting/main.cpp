@@ -4,8 +4,10 @@ void bubbleSort(int Numbers[], int size);
 void selectionSort(int Numbers[], int size);
 void exchangeSort(int Numbers[], int size);
 void insertionSort(int Numbers[], int size);
-void quickSort(int Numbers[], int size);
-void mergeSort(int Numbers[], int size);
+int partition(int Numbers[], int low, int high);
+void quickSort(int Numbers[], int low, int high);
+void merge(int Numbers[], int left, int mid, int right);
+void mergeSort(int Numbers[], int left, int right);
 void heapSort(int Numbers[], int size);
 void countingSort(int Numbers[], int size);
 void bucketSort(int Numbers[], int size);
@@ -51,6 +53,24 @@ int main() {
 
     insertionSort(workingCopy, size);
     std::cout << "After Insertion Sort:  ";
+    printArray(workingCopy, size);
+    std::cout << '\n';
+
+    copyArray(Numbers, workingCopy, size);
+    std::cout << "Before Quick Sort: ";
+    printArray(workingCopy, size);
+
+    quickSort(workingCopy, 0, size - 1);
+    std::cout << "After Quick Sort:  ";
+    printArray(workingCopy, size);
+    std::cout << '\n';
+
+    copyArray(Numbers, workingCopy, size);
+    std::cout << "Before Merge Sort: ";
+    printArray(workingCopy, size);
+
+    mergeSort(workingCopy, 0, size - 1);
+    std::cout << "After Merge Sort:  ";
     printArray(workingCopy, size);
     std::cout << '\n';
 
@@ -110,11 +130,88 @@ void insertionSort(int Numbers[], int size) {
     }
 }
 
-void quickSort(int Numbers[], int size) {
+int partition(int Numbers[], int low, int high) {
+    int pivot = Numbers[high];
+    int i = (low - 1);
+
+    for(int j = low; j < high; j++) {
+        if(Numbers[j] <= pivot) {
+            i++;
+            int temp = Numbers[i];
+            Numbers[i] = Numbers[j];
+            Numbers[j] = temp;
+        }
+    }
+    int temp = Numbers[i + 1];
+    Numbers[i + 1] = Numbers[high];
+    Numbers[high] = temp;
+
+    return (i + 1);
+} 
+void quickSort(int Numbers[], int low, int high) {
+    if(low < high) {
+        int pi = partition(Numbers, low, high);
+
+        quickSort(Numbers, low, pi - 1);
+        quickSort(Numbers, pi + 1, high);
+    }
 
 }
-void mergeSort(int Numbers[], int size) {
 
+void merge(int Numbers[], int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    int* L = new int[n1];
+    int* R = new int[n2];
+
+    for(int i = 0; i < n1; i++) {
+        L[i] = Numbers[left + i]; 
+    }
+    for(int j = 0; j < n2; j++) {
+        R[j] = Numbers[mid + 1 + j];
+    }
+
+    int i = 0;
+    int j = 0;
+    int k = left;
+
+    while(i < n1 && j < n2) {
+        if(L[i] <= R[j]) {
+            Numbers[k] = L[i];
+            i++;
+        } else {
+            Numbers[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i < n1) {
+        Numbers[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while(j < n2) {
+        Numbers[k] = R[j];
+        j++;
+        k++;
+    }
+
+    delete[] L;
+    delete[] R;
+   
+}
+void mergeSort(int Numbers[], int left, int right) {
+    if(left < right) {
+        int mid = left + (right - left) / 2;
+
+        mergeSort(Numbers, left, mid);
+        mergeSort(Numbers, mid + 1, right);
+
+        merge(Numbers, left, mid, right);
+    }
 }
 
 void heapSort(int Numbers[], int size) {
