@@ -4,9 +4,12 @@
 #include <thread>
 
 void digitalClock();
+void countDownTime();
 
 int main() {
-    digitalClock();
+    //digitalClock();
+
+    countDownTime();
 
     return 0;
 }
@@ -32,5 +35,46 @@ void digitalClock() {
 
     std::cout << '\n';
 
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    //std::this_thread::sleep_for(std::chrono::seconds(1));
+}
+
+void countDownTime() {
+    int minutes, seconds;
+
+    std::cout << "Countdown time\n";
+
+    std::cout << "Enter minutes: ";
+    std::cin >> minutes;
+
+    std::cout << "Enter seconds: ";
+    std::cin >> seconds;
+
+    int totalSeconds = (minutes * 60) + seconds;
+
+    while(totalSeconds >= 0) {
+        system("cls");
+        
+        digitalClock();
+
+        int currentMin = totalSeconds / 60;
+        int currentSec = totalSeconds % 60;
+
+        std::cout << "Time remaining: ";
+
+        if(currentMin < 10) std::cout << "0";
+        std::cout << currentMin << ":";
+
+        if(currentSec < 10) std::cout << "0";
+        std::cout << currentSec << "\n\n";
+
+        totalSeconds--;
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+
+    system("cls");
+
+    digitalClock();
+
+    std::cout << "Time's up!";
 }
