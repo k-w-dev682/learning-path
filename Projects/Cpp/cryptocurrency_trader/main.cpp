@@ -28,7 +28,7 @@ int main() {
 
     double cash = 1000.0;
     int day = 1;
-    Asset market[3] = { 
+    Asset market[3] = {
         {"Bitcoin", 59000.0, 0.0},
         {"Ethereum", 1582.58, 0.0},
         {"Litecoin", 42.38, 0.0}
