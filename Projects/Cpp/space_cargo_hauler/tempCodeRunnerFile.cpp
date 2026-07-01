@@ -1,0 +1,1 @@
+std::cout << "Success! You traveled to " << planets[currentPlanetIdx].name;
